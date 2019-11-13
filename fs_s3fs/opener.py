@@ -23,7 +23,7 @@ class S3FSOpener(Opener):
         strict = (
             parse_result.params["strict"] == "1"
             if "strict" in parse_result.params
-            else True
+            else False
         )
         s3fs = S3FS(
             bucket_name,

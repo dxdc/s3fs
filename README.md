@@ -11,7 +11,7 @@ same way as any other supported filesystem.
 You can install S3FS from pip as follows:
 
 ```
-pip install fs-s3fs
+pip install fs-s3fs-ng
 ```
 
 ## Opening a S3FS

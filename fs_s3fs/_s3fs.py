@@ -388,8 +388,16 @@ class S3FS(FS):
 
         return _directory
 
+    def makedirs(self, path, permissions=None, recreate=False):
+        if not self.strict:
+            self.check()
+            return SubFS(self, path)
+        return super(S3FS, self).makedirs(path, permissions, recreate)
+
     def makedir(self, path, permissions=None, recreate=False):
         self.check()
+        if not self.strict:
+            return SubFS(self, path)
         _path = self.validatepath(path)
         _key = self._path_to_dir_key(_path)
 

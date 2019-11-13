@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# coding: utf-8
 
 from setuptools import setup, find_packages
 
@@ -23,14 +24,14 @@ CLASSIFIERS = [
 with open("README.rst", "rt") as f:
     DESCRIPTION = f.read()
 
-REQUIREMENTS = ["boto3~=1.9", "fs~=2.4", "six~=1.10"]
+REQUIREMENTS = ["boto3>=1.7", "fs~=2.4", "six>=1.10"]
 
 setup(
-    name="fs-s3fs",
-    author="Will McGugan",
-    author_email="willmcgugan@gmail.com",
+    name="fs-s3fs-ng",
+    author="Mariusz Kryński",
+    author_email="mrk@sed.pl",
     classifiers=CLASSIFIERS,
-    description="Amazon S3 filesystem for PyFilesystem2",
+    description="Amazon S3 filesystem for PyFilesystem2, with streaming and non-strict by default",
     install_requires=REQUIREMENTS,
     license="MIT",
     long_description=DESCRIPTION,
@@ -38,7 +39,7 @@ setup(
     keywords=["pyfilesystem", "Amazon", "s3"],
     platforms=["any"],
     test_suite="nose.collector",
-    url="https://github.com/PyFilesystem/s3fs",
+    url="https://github.com/mrk-its/s3fs",
     version=__version__,
     entry_points={"fs.opener": ["s3 = fs_s3fs.opener:S3FSOpener"]},
 )
